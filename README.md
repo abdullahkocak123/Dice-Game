@@ -1,16 +1,25 @@
-# React + Vite
+# 🎲 Dice Game (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a simple yet fun Dice Rolling Game built with React.
+The player can enter a name or play as Player 1 by default.
+After rolling, the dice animate for 3 seconds, and then the winner or draw result is displayed on the screen.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🖥️ Single-screen design — name input and game on the same page
 
-## React Compiler
+🎲 Dice animation — smooth 3-second rolling effect
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+👤 Custom player name — or defaults to “Player 1” if left empty
 
-## Expanding the ESLint configuration
+🤖 Play against computer — Player 2 rolls automatically
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🔁 Replay anytime — just click Play again
+
+## ⚙️ Built With
+
+React (Vite)
+
+useState, setInterval, and setTimeout
+
+CSS animations for dice rolling
