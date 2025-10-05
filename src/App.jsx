@@ -1,35 +1,80 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+
+import "./index.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [playerName, setPlayerName] = useState("");
+  const [dice1, setDice1] = useState(1);
+  const [dice2, setDice2] = useState(1);
+  const [isRolling, setIsRolling] = useState(false);
+  const [result, setResult] = useState("");
+
+  const rollDice = () => {
+    setIsRolling(true);
+    setResult("");
+
+    const rollInterval = setInterval(() => {
+      setDice1(Math.floor(Math.random() * 6) + 1);
+      setDice2(Math.floor(Math.random() * 6) + 1);
+    }, 100);
+
+    setTimeout(() => {
+      clearInterval(rollInterval);
+      const finalDice1 = Math.floor(Math.random() * 6) + 1;
+      const finalDice2 = Math.floor(Math.random() * 6) + 1;
+
+      setDice1(finalDice1);
+      setDice2(finalDice2);
+      setIsRolling(false);
+
+      if (finalDice1 > finalDice2) setResult("Win! 🎉");
+      else if (finalDice1 < finalDice2) setResult("Lose! 💀");
+      else setResult("Draw! 🤝");
+    }, 3000);
+  };
+
+  const displayName = playerName.trim() === "" ? "Player 1" : playerName;
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="app">
+      <h1 className="result">{result}</h1>
+
+      <div className="name-input">
+        <label htmlFor="name">Enter Your Name: </label>
+        <input
+          id="name"
+          type="text"
+          value={playerName}
+          onChange={(e) => setPlayerName(e.target.value)}
+          placeholder="Name (Optional)"
+        />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+
+      <div className="players">
+        <div className="player">
+          <h2>{displayName}</h2>
+          <img
+            src={`./src/assets/dice${dice1}.png`}
+            alt={`Dice ${dice1}`}
+            className={isRolling ? "rolling" : ""}
+          />
+        </div>
+
+        <div className="player">
+          <h2>Player 2</h2>
+          <img
+            src={`./src/assets/dice${dice2}.png`}
+            alt={`Dice ${dice2}`}
+            className={isRolling ? "rolling" : ""}
+          />
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+
+      <button onClick={rollDice} disabled={isRolling}>
+        {isRolling ? "Rolling..." : "Play"}
+      </button>
+    </div>
+  );
 }
 
-export default App
+export default App;
