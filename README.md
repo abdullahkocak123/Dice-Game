@@ -24,6 +24,6 @@ useState, setInterval, and setTimeout
 
 CSS animations for dice rolling
 
-## Live
+## Live Site:
 
-[React (Vite)](https://dicegameby.netlify.app/)
+https://dicegameby.netlify.app/
