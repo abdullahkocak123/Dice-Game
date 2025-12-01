@@ -1,6 +1,12 @@
 import { useState } from "react";
 
 import "./index.css";
+import dice1Img from "./assets/dice1.png";
+import dice2Img from "./assets/dice2.png";
+import dice3Img from "./assets/dice3.png";
+import dice4Img from "./assets/dice4.png";
+import dice5Img from "./assets/dice5.png";
+import dice6Img from "./assets/dice6.png";
 
 function App() {
   const [playerName, setPlayerName] = useState("");
@@ -54,7 +60,11 @@ function App() {
         <div className="player">
           <h2>{displayName}</h2>
           <img
-            src={`./src/assets/dice${dice1}.png`}
+            src={
+              [dice1Img, dice2Img, dice3Img, dice4Img, dice5Img, dice6Img][
+                dice1 - 1
+              ]
+            }
             alt={`Dice ${dice1}`}
             className={isRolling ? "rolling" : ""}
           />
@@ -63,7 +73,11 @@ function App() {
         <div className="player">
           <h2>Player 2</h2>
           <img
-            src={`./src/assets/dice${dice2}.png`}
+            src={
+              [dice1Img, dice2Img, dice3Img, dice4Img, dice5Img, dice6Img][
+                dice2 - 1
+              ]
+            }
             alt={`Dice ${dice2}`}
             className={isRolling ? "rolling" : ""}
           />
