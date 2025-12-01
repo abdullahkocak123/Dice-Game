@@ -23,3 +23,7 @@ React (Vite)
 useState, setInterval, and setTimeout
 
 CSS animations for dice rolling
+
+## Live
+
+[React (Vite)](https://dicegameby.netlify.app/)
